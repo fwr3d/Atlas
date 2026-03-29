@@ -1,90 +1,99 @@
+import Link from "next/link";
+
 export default function Home() {
   return (
-    <main className="min-h-screen bg-background text-foreground">
-      <div className="mx-auto flex min-h-screen max-w-6xl flex-col px-6">
-        <header className="flex items-center justify-between py-6">
-          <div className="text-xl font-semibold tracking-tight">Atlas</div>
+    <main className="atlas-shell min-h-screen text-foreground">
+      <div className="mx-auto flex min-h-screen max-w-6xl flex-col px-6 py-6 sm:px-10">
+        <header className="atlas-fade-up flex items-center justify-between border-b border-border pb-5">
+          <div>
+            <p className="atlas-kicker">Atlas</p>
+            <p className="mt-2 text-sm text-muted-foreground">
+              Calm infrastructure for daily work
+            </p>
+          </div>
+
           <div className="flex items-center gap-3">
-            <a
+            <Link
               href="/login"
               className="text-sm text-muted-foreground transition hover:text-foreground"
             >
               Log in
-            </a>
-            <a
-              href="/signup"
-              className="rounded-md bg-foreground px-4 py-2 text-sm font-medium text-background transition hover:opacity-90"
-            >
+            </Link>
+            <Link href="/signup" className="atlas-button-primary px-4 py-2.5">
               Get started
-            </a>
+            </Link>
           </div>
         </header>
 
-        <section className="flex flex-1 items-center py-16">
-          <div className="grid w-full items-center gap-12 lg:grid-cols-2">
+        <section className="grid flex-1 items-start gap-14 py-14 lg:grid-cols-[minmax(0,1fr)_320px]">
+          <div className="atlas-fade-up space-y-10">
             <div className="space-y-6">
-              <div className="inline-flex rounded-full border border-border px-3 py-1 text-sm text-muted-foreground">
-                Personal productivity, rethought
-              </div>
-
-              <h1 className="max-w-xl text-5xl font-semibold tracking-tight sm:text-6xl">
-                A clean dashboard for your work, notes, and daily flow.
+              <p className="atlas-kicker">Tasks and notes</p>
+              <h1 className="atlas-title max-w-4xl text-6xl leading-none sm:text-7xl">
+                A focused workspace for your tasks, notes, and daily work.
               </h1>
-
-              <p className="max-w-lg text-lg text-muted-foreground">
-                Atlas helps you organize tasks, manage notes, and stay on top of your day
-                with a fast, focused interface.
+              <p className="max-w-2xl text-lg leading-8 text-muted-foreground">
+                Atlas keeps the important work visible without getting in the way. It is fast,
+                quiet, and simple enough to keep open all day.
               </p>
-
-              <div className="flex flex-wrap gap-3">
-                <a
-                  href="/signup"
-                  className="rounded-md bg-foreground px-5 py-3 text-sm font-medium text-background transition hover:opacity-90"
-                >
-                  Create account
-                </a>
-                <a
-                  href="/dashboard"
-                  className="rounded-md border border-border px-5 py-3 text-sm font-medium transition hover:bg-muted"
-                >
-                  View demo
-                </a>
-              </div>
             </div>
 
-            <div className="rounded-2xl border border-border bg-card p-6 shadow-sm">
-              <div className="mb-4 flex items-center justify-between">
-                <div>
-                  <p className="text-sm text-muted-foreground">Overview</p>
-                  <h2 className="text-xl font-semibold">Today at a glance</h2>
-                </div>
-                <div className="rounded-full border border-border px-3 py-1 text-xs text-muted-foreground">
-                  Live preview
-                </div>
+            <div className="flex flex-wrap gap-3">
+              <Link href="/signup" className="atlas-button-primary">
+                Create account
+              </Link>
+              <Link href="/dashboard" className="atlas-button-secondary">
+                Explore the workspace
+              </Link>
+            </div>
+
+            <div className="grid gap-8 border-t border-border pt-8 sm:grid-cols-3">
+              <div>
+                <p className="atlas-kicker">Tasks</p>
+                <p className="mt-3 text-lg leading-7">
+                  Keep active work visible and small enough to manage.
+                </p>
+              </div>
+              <div>
+                <p className="atlas-kicker">Notes</p>
+                <p className="mt-3 text-lg leading-7">
+                  Hold ideas, drafts, and supporting context nearby.
+                </p>
+              </div>
+              <div>
+                <p className="atlas-kicker">Overview</p>
+                <p className="mt-3 text-lg leading-7">
+                  See what is open, what is done, and what deserves focus next.
+                </p>
+              </div>
+            </div>
+          </div>
+
+          <aside className="atlas-fade-up-delay border-l border-border pl-0 lg:pl-8">
+            <div className="space-y-8">
+              <div>
+                <p className="atlas-kicker">Preview</p>
+                <h2 className="atlas-title mt-3 text-3xl">Today at a glance</h2>
               </div>
 
-              <div className="grid gap-4 sm:grid-cols-2">
-                <div className="rounded-xl border border-border bg-background p-4">
-                  <p className="text-sm text-muted-foreground">Tasks</p>
-                  <p className="mt-2 text-3xl font-semibold">7</p>
-                  <p className="mt-2 text-sm text-muted-foreground">2 due today</p>
+              <div className="space-y-6">
+                <div className="border-b border-border pb-5">
+                  <p className="atlas-kicker">Open tasks</p>
+                  <p className="mt-3 text-5xl font-semibold tracking-tight">7</p>
                 </div>
-
-                <div className="rounded-xl border border-border bg-background p-4">
-                  <p className="text-sm text-muted-foreground">Notes</p>
-                  <p className="mt-2 text-3xl font-semibold">14</p>
-                  <p className="mt-2 text-sm text-muted-foreground">3 recently updated</p>
+                <div className="border-b border-border pb-5">
+                  <p className="atlas-kicker">Recent notes</p>
+                  <p className="mt-3 text-5xl font-semibold tracking-tight">14</p>
                 </div>
-
-                <div className="rounded-xl border border-border bg-background p-4 sm:col-span-2">
-                  <p className="text-sm text-muted-foreground">Focus</p>
-                  <p className="mt-2 text-lg font-medium">
-                    Finish dashboard wireframe and review internship resume
+                <div>
+                  <p className="atlas-kicker">Focus</p>
+                  <p className="mt-3 text-lg leading-8">
+                    Finish the portfolio pass, tighten the notes model, and wrap up the day.
                   </p>
                 </div>
               </div>
             </div>
-          </div>
+          </aside>
         </section>
       </div>
     </main>
